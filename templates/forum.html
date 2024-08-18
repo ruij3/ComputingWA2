@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Note-Taking App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <h1>Discussion Page</h1>
+    <h2>Add New Message</h2>
+
+    <form action="/add" method="POST">
+        <input type="text" class="messages" name="message" required>
+        <button type="submit" class="button">Submit</button>
+    </form>
+    
+    <hr>
+    {% if messages %}
+    <div class="ul">
+        <ul>
+          {% for message in messages %}
+          <li>{{ message[0] }}: <strong>{{ message[1] }}</strong></li>
+          {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <h3>There are currently no messages.</h3>
+    {% endif %}
+
+    <br>
+
+    <form action="/home" method="POST">
+        <input type="submit" value="Back to home">
+    </form>
+  </body>
+</html>

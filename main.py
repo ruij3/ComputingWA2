@@ -2,6 +2,8 @@ from flask import Flask, render_template, redirect, request, url_for
 from datetime import datetime
 import sqlite3
 import pytz
+import csv
+import os
 
 ########################### database #########################
 def create_database():
@@ -120,9 +122,37 @@ def integration():
     else:
         return render_template("integration.html")
 
+@app.route('/add', methods=['POST'])
+def add():
+    message = request.form['message']
+    sg_timezone = pytz.timezone('Asia/Singapore')
+    date_time = datetime.now(sg_timezone).strftime("%Y-%m-%d %H:%M:%S")
+    new_message = [date_time, message]
+
+    # file closes after with block
+    try:
+        with open("message.csv", "a") as file:
+            writer = csv.writer(file)
+            writer.writerow(new_message)
+    except Exception as e:
+        print(f"Error: {e}")
+
+    return redirect('/forum')
+
+@app.route('/forum')
+def forum():
+    messages = []
+    if os.path.exists('message.csv'):
+        with open('message.csv', 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                messages.append(row)
+    return render_template("forum.html", messages=messages)
+
+
 @app.route('/home', methods=['POST'])
 def return_home():
     return redirect('/')
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

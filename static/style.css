@@ -107,3 +107,29 @@ td {
   padding-right: 5px;
   padding-left: 5px;
 }
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.messages {
+  width: 90%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ul {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  color: #fffdee;
+  font-family: "Montserrat", light;
+}
