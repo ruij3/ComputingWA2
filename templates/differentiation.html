@@ -15,90 +15,59 @@
   <body>
     <h1>Differentiation + AOD quiz</h1>
 
-    <ul class="quiz">
-      <li>
-        <h4>1. Which one of this equation is a ellipse?</h4>
-        <ul class="choices">
-          <li>
-            <label><input type="radio" name="question0" value="A"/><span>
-              2            
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question0" value="B"/><span>
-              1
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question0" value="C"/><span>
-              3
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question0" value="D"/><span>
-              4
-            </span></label>
-          </li>
+    <h3>Submit Your Name</h3>
+    <form method="POST">
+        <input type="hidden" name="score" value="{{ score }}">
+        <label for="name" class="username">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+      
+        <ul class="quiz">
+            <li>
+                <h4>1. Which one of these graphs is the graph for y = sin⁻¹x?</h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question3" value="A"/><! correct ans --> <span><img src="{{ url_for('static', filename='inverse sin graph.jpg') }}" alt="graph 1" width="200" height="150"></span></label></li>
+                    <li><label><input type="radio" name="question3" value="B"/> <span><img src="{{ url_for('static', filename='inverse cos graph.webp') }}" alt="graph 2" width="200" height="150"></span></label></li>
+                    <li><label><input type="radio" name="question3" value="C"/> <span><img src="{{ url_for('static', filename='sin graph.png') }}" alt="graph 3" width="200" height="150"></span></label></li>
+                    <li><label><input type="radio" name="question3" value="D"/> <span><img src="{{ url_for('static', filename='tan graph.gif') }}" alt="graph 4" width="200" height="150"></span></label></li>
+                </ul>
+            </li>
+            <li>
+                <h4>2. The 2nd derivative of (x² + y² = 2y) is (1 - y)³.</h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question4" value="A"/> <span>True</span></label></li>
+                    <li><label><input type="radio" name="question4" value="B"/> <span><! correct ans -->False</span></label></li>
+                </ul>
+            </li>
+            <li>
+                <h4>3. <img src="{{ url_for('static', filename='maximum graph.png') }}" alt="graph 4" width="200" height="150"><br> What are the properties of this graph?</h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question5" value="A"/> <span>It is a maximum point and the gradient is increasing.</span></label></li>
+                    <li><label><input type="radio" name="question5" value="B"/> <span>It is a minimum point and the gradient is increasing.</span></label></li>
+                    <li><label><input type="radio" name="question5" value="C"/> <span><! correct ans -->It is a maximum point and the gradient is decreasing.</span></label></li>
+                    <li><label><input type="radio" name="question5" value="D"/> <span>It is a minimum point and the gradient is decreasing.</span></label></li>
+                </ul>
+            </li>
+            <li>
+                <h4>4. <img src="{{ url_for('static', filename='maximum graph.png') }}" alt="graph 4" width="200" height="150"><br> What are the properties of this graph></h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question6" value="A"/> <span>It is a maximum point and the gradient is increasing.</span></label></li>
+                    <li><label><input type="radio" name="question6" value="B"/> <span>It is a minimum point and the gradient is increasing.</span></label></li>
+                    <li><label><input type="radio" name="question6" value="C"/> <span><! correct ans -->It is a maximum point and the gradient is decreasing.</span></label></li>
+                    <li><label><input type="radio" name="question6" value="D"/> <span>It is a minimum point and the gradient is decreasing.</span></label></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-      <li>
-        <h4>2. Which one of this equation is a hyperbola?</h4>
-        <ul class="choices">
-          <li>
-            <label><input type="radio" name="question1" value="A"/><span>
-              2
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question1" value="B"/><span>
-              1
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question1" value="C"/><span>
-              3
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question1" value="D"/><span>
-              4
-            </span></label>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h4>3. Which one of these equations is a parabola?</h4>
-        <ul class="choices">
-          <li>
-            <label><input type="radio" name="question2" value="A"/><span>
-              x = ay² - by - c
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question2" value="B"/><span>
-              x = a(k - y)² + h
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question2" value="C"/><span>
-              y = x(a - h)² + k
-            </span></label>
-          </li>
-          <li>
-            <label><input type="radio" name="question2" value="D"/><span> 
-              <! correct ans -->
-              y = a(x - h)² + k
-            </span></label>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <button class="view-results" onclick="returnScore()">View Results</button>
-    <span id="myresults" class="my-results">My results will appear here</span>
-    <br><br>
-
+      <form action="/submit_name" method="POST">
+        <input type="submit" value="Submit">
+      </form>
+    </form>
+    
+    <br>
+    <hr>
+    <br>
+    
     <form action="/home" method="POST">
       <input type="submit" value="Back to home">
+    </form>
   </body>
 </html>

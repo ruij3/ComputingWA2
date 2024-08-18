@@ -33,11 +33,21 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-form.topics {
-  display: flex;
-  gap: 10px;
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-family: "Bebas Neue", light;
+    font-size: 19px;
+    background-color: #e44201;
+    color: #fffdee;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
-
+  
 .quiz,
 .choices {
   list-style-type: none;
@@ -64,18 +74,36 @@ input[type="radio"] {
 input[type="radio"] {
   margin-right: 8px;
 }
-  
-.view-results {
-  padding: 1rem;
-  cursor: pointer;
-  font-family: "Bebas Neue", light;
-  color: #fffdee;
-  background: #9d9d9d;
-  border-radius: 8px;
-  margin-right: 5px;
+
+.username {
+  font-family: "Montserrat", light;
+  color: #aab1c1;
 }
   
-.my-results {
-  padding: 1rem;
-  border: 1px solid goldenrod;
+.leaderboard {
+  font-family: "Montserrat", light;
+  color: #fffdee;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border: 3px;
+}
+
+th {
+  background-color: #e44201;
+  color: #aab1c1;
+  padding: 7px;
+  padding-right: 5px;
+  padding-left: 5px;
+  
+}
+
+td {
+  background-color: #9d9d9d;
+  padding: 7px;
+  padding-right: 5px;
+  padding-left: 5px;
 }

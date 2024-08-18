@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Leaderboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Leaderboard</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-                <th>Date and Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for entry in leaderboard %}
-            <tr>
-                <td>{{ entry[0] }}</td>
-                <td>{{ entry[1] }}</td>
-                <td>{{ entry[2] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="leaderboard">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Topic</th>
+                    <th>Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard %}
+                <tr>
+                    <td>{{ entry[0] }}</td>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                    <td>{{ entry[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>      
+    </div>
 
-    <br><br>
+    <br><br>  
     
     <form action="/home" method="POST">
       <input type="submit" value="Back to home">
     </form>
+    
 </body>
 </html>

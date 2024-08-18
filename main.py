@@ -13,6 +13,7 @@ def create_database():
     CREATE TABLE IF NOT EXISTS leaderboard (
         name TEXT,
         score TEXT,
+        topic TEXT,
         date_time TEXT
     )
     ''')
@@ -29,7 +30,10 @@ app = Flask(__name__)
 correct_answers = {
     'question0': 'B',
     'question1': 'B',
-    'question2': 'D'
+    'question2': 'D',
+    'question3': 'A',
+    'question4': 'B',
+    'question5': 'C',
 }
 
 def calculate_score(answers):
@@ -39,15 +43,15 @@ def calculate_score(answers):
             score += 1
     return score
 
-def store_score(name, score):
+def store_score(name, topic, score):
     conn = sqlite3.connect('leaderboard.db')
     cursor = conn.cursor()
     sg_timezone = pytz.timezone('Asia/Singapore')
     date_time = datetime.now(sg_timezone).strftime("%Y-%m-%d %H:%M:%S")
     cursor.execute('''
-    INSERT INTO leaderboard (name, score, date_time)
-    VALUES (?, ?, ?)
-    ''', (name, score, date_time))
+    INSERT INTO leaderboard (name, score, topic, date_time)
+    VALUES (?, ?, ?, ?)
+    ''', (name, score, topic, date_time))
     conn.commit()
     conn.close()
 
@@ -55,9 +59,9 @@ def get_leaderboard():
     conn = sqlite3.connect('leaderboard.db')
     cursor = conn.cursor()
     cursor.execute('''
-    SELECT name, score, date_time
+    SELECT name, score, topic, date_time
     FROM leaderboard
-    ORDER BY score DESC
+    ORDER BY score DESC, topic ASC
     ''')
     leaderboard = cursor.fetchall()
     conn.close()
@@ -79,14 +83,23 @@ def standard_curves():
         answers = {key: value for key, value in request.form.items() if key.startswith('question')}
         score = calculate_score(answers)
         name = request.form['name']
-        store_score(name, score)
+        topic = "Standard Curves"
+        store_score(name, topic, score)
         return redirect('/leaderboard')
     else:
         return render_template("standard_curves.html")
         
-@app.route('/differentiation', methods=['POST'])
+@app.route('/differentiation', methods=['GET', 'POST'])
 def differentiation():
-    return render_template("differentiation.html")
+    if request.method == 'POST':
+        answers = {key: value for key, value in request.form.items() if key.startswith('question')}
+        score = calculate_score(answers)
+        name = request.form['name']
+        topic = "Differentiation + AOD"
+        store_score(name, topic, score)
+        return redirect('/leaderboard')
+    else:
+        return render_template("differentiation.html")
 
 @app.route('/vectors', methods=['POST'])
 def vectors():
@@ -101,4 +114,4 @@ def return_home():
     return redirect('/')
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=5000)
+  app.run(host='0.0.0.0', port=5000, debug=True)
