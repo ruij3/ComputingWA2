@@ -34,6 +34,13 @@ correct_answers = {
     'question3': 'A',
     'question4': 'B',
     'question5': 'C',
+    'question6': 'C',
+    'question7': 'A',
+    'question8': 'D',
+    'question9': 'A',
+    'question10': 'A',
+    'question11': 'B',
+    'question12': 'D',
 }
 
 def calculate_score(answers):
@@ -101,13 +108,17 @@ def differentiation():
     else:
         return render_template("differentiation.html")
 
-@app.route('/vectors', methods=['POST'])
-def vectors():
-    return render_template("vectors.html")
-
-@app.route('/integration', methods=['POST'])
+@app.route('/integration', methods=['GET', 'POST'])
 def integration():
-    return render_template("integration.html")
+    if request.method == 'POST':
+        answers = {key: value for key, value in request.form.items() if key.startswith('question')}
+        score = calculate_score(answers)
+        name = request.form['name']
+        topic = "Integration"
+        store_score(name, topic, score)
+        return redirect('/leaderboard')
+    else:
+        return render_template("integration.html")
 
 @app.route('/home', methods=['POST'])
 def return_home():

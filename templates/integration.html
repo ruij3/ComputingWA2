@@ -23,28 +23,46 @@
       
         <ul class="quiz">
             <li>
-                <h4>1. Which one of these graphs is the graph for y = sin⁻¹x?</h4>
+                <h4>1. Solve this definite integral. <br><img src="{{ url_for('static', filename='definite integral.png') }}" alt="graph" width="350" height="150"></h4>
                 <ul class="choices">
-                    <li><label><input type="radio" name="question3" value="A"/><! correct ans --> <span><img src="{{ url_for('static', filename='inverse sin graph.jpg') }}" alt="graph 1" width="200" height="150"></span></label></li>
-                    <li><label><input type="radio" name="question3" value="B"/> <span><img src="{{ url_for('static', filename='inverse cos graph.webp') }}" alt="graph 2" width="200" height="150"></span></label></li>
-                    <li><label><input type="radio" name="question3" value="C"/> <span><img src="{{ url_for('static', filename='sin graph.png') }}" alt="graph 3" width="200" height="150"></span></label></li>
-                    <li><label><input type="radio" name="question3" value="D"/> <span><img src="{{ url_for('static', filename='tan graph.gif') }}" alt="graph 4" width="200" height="150"></span></label></li>
+                    <li><label><input type="radio" name="question8" value="A"/><span>-3.2134</span></label></li>
+                    <li><label><input type="radio" name="question8" value="B"/> <span>0</span></label></li>
+                    <li><label><input type="radio" name="question8" value="C"/> <span>23</span></label></li>
+                    <li><label><input type="radio" name="question8" value="D"/> <span><! correct ans -->2</span></label></li>
                 </ul>
             </li>
             <li>
-                <h4>2. The 2nd derivative of (x² + y² = 2y) is (1 - y)³.</h4>
+                <h4>2. <img src="{{ url_for('static', filename='formula.png') }}" alt="graph" width="260" height="150"><br> This formula is correct.</h4>
                 <ul class="choices">
-                    <li><label><input type="radio" name="question4" value="A"/> <span>True</span></label></li>
-                    <li><label><input type="radio" name="question4" value="B"/> <span><! correct ans -->False</span></label></li>
+                    <li><label><input type="radio" name="question9" value="A"/> <span><! correct ans -->True</span></label></li>
+                    <li><label><input type="radio" name="question9" value="B"/> <span>False</span></label></li>
                 </ul>
             </li>
             <li>
-                <h4>3. <img src="{{ url_for('static', filename='maximum graph.png') }}" alt="graph 4" width="200" height="150"><br> What are the properties of this graph></h4>
+                <h4>3. Integrate (tan2x + sec2x)².</h4>
                 <ul class="choices">
-                    <li><label><input type="radio" name="question5" value="A"/> <span>It is a maximum point and the gradient is increasing.</span></label></li>
-                    <li><label><input type="radio" name="question5" value="B"/> <span>It is a minimum point and the gradient is increasing.</span></label></li>
-                    <li><label><input type="radio" name="question5" value="C"/> <span><! correct ans -->It is a maximum point and the gradient is decreasing.</span></label></li>
-                    <li><label><input type="radio" name="question5" value="D"/> <span>It is a minimum point and the gradient is decreasing.</span></label></li>
+                    <li><label><input type="radio" name="question10" value="A"/> <span><! correct ans -->tan2x - x + sec2x + c</span></label></li>
+                    <li><label><input type="radio" name="question10" value="B"/> <span>tan2x + x + sec2x + c</span></label></li>
+                    <li><label><input type="radio" name="question10" value="C"/> <span>2tan2x - x + 2sec2x + c</span></label></li>
+                    <li><label><input type="radio" name="question10" value="D"/> <span>tan2x - x - sec2x + c</span></label></li>
+                </ul>
+            </li>
+            <li>
+                <h4>4. Integrate 3x²eˣ³.</h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question11" value="A"/> <span>6xeˣ³ + c</span></label></li>
+                    <li><label><input type="radio" name="question11" value="B"/> <span><! correct ans -->eˣ³ + c</span></label></li>
+                    <li><label><input type="radio" name="question11" value="C"/> <span>18xeˣ² + c</span></label></li>
+                    <li><label><input type="radio" name="question11" value="D"/> <span>3x + c</span></label></li>
+                </ul>
+            </li>
+            <li>
+                <h4>5. Integrate 5x² - 8x + 5.</h4>
+                <ul class="choices">
+                    <li><label><input type="radio" name="question12" value="A"/> <span>(3/5)x³ - 4x² + 5x + c</span></label></li>
+                    <li><label><input type="radio" name="question12" value="B"/> <span>(5/3)x³ - 4x² + 5x - c</span></label></li>
+                    <li><label><input type="radio" name="question12" value="C"/> <span>(5/3)x³ + 4x² + 5x + c</span></label></li>
+                    <li><label><input type="radio" name="question12" value="D"/> <span><! correct ans -->(5/3)x³ - 4x² + 5x + c</span></label></li>
                 </ul>
             </li>
         </ul>
