@@ -1,0 +1,81 @@
+body {
+  background-color: #46433f;
+
+h1 {
+  font-family: "Bebas Neue", bold;
+  font-size: 50px;
+  background-color: #9d9d9d;
+  color: #e44201;
+  border: 2px solid #fffdee;
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Montserrat";
+  color: #aab1c1
+}
+
+h3 {
+  font-family: "Montserrat", light;
+  color: #fffdee
+}
+
+input[type="submit"] {
+  font-family: "Bebas Neue", light;
+  font-size: 19px;
+  background-color: #e44201;
+  color: #fffdee;
+  width: 100%;
+  padding: 7px;
+  padding-right: 5px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+form.topics {
+  display: flex;
+  gap: 10px;
+}
+
+.quiz,
+.choices {
+  list-style-type: none;
+  padding: 0;
+  color: #fffdee;
+  font-family: "Montserrat", light;
+}
+  
+.choices li {
+  margin-bottom: 5px;
+}
+  
+.choices label {
+  display: flex;
+  align-items: center;
+}
+  
+.choices label,
+input[type="radio"] {
+  cursor: pointer;
+  font-family: "Montserrat", light;
+}
+  
+input[type="radio"] {
+  margin-right: 8px;
+}
+  
+.view-results {
+  padding: 1rem;
+  cursor: pointer;
+  font-family: "Bebas Neue", light;
+  color: #fffdee;
+  background: #9d9d9d;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+  
+.my-results {
+  padding: 1rem;
+  border: 1px solid goldenrod;
+}
